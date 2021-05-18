@@ -1,25 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React  from 'react';
+import styled from 'styled-components';
+import About from './About';
+import Home from './Home';
+import Projects from './Ref1Front';
 
-function App() {
+const AppContainer= styled.div`
+  width: 100vw;
+  //background-color: tomato;
+  display: flex;
+  flex-direction: column;
+  justify-content; flex-start;
+  align-items: center;
+
+`;
+const Wrap = styled.div`
+  width: 100%;
+  max-width: 80rem;
+  //background-color: teal;
+`;
+
+const App: React.FC = () => {
+
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AppContainer>
+      <Wrap>
+        <Home />
+        <About />
+        <Projects />
+      </Wrap>
+    </AppContainer>
   );
 }
 
