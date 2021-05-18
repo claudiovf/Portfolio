@@ -4,7 +4,7 @@ import Icon from './Icons/Icon';
 import { IconType } from './Icons/Paths';
 
 const AboutWrap = styled.div`
-    background-color: #667dff;
+    background-color: #f5f6ff;
     width: 100%;
     height: auto;
     display: flex;
@@ -34,7 +34,7 @@ const TechBox = styled.div`
     height: 5rem;
     
     p {
-        color: rgb(255,255,255, 0.8);
+        color: rgb(0,0,0, 0.7);
         font-family: Arial Black;
         white-space: nowrap;
     }
@@ -43,7 +43,7 @@ const TechBox = styled.div`
 const TitleH2 = styled.h2`
     margin: 0;
     font-size: 3rem;
-    color: #fff;
+    color: #667dff;
     padding: 0;
     @media (max-width: 768px) {
         font-size: 2rem;
@@ -56,11 +56,11 @@ const Description = styled.div`
     max-width: 40rem;
     width: 60%;
     margin: 3rem 0 5rem 0;
-    color: rgb(255,255,255, 0.7);
+    color: rgb(0,0,0, 0.7);
     font-size: 1.5rem;
 
     span {
-        color: rgb(255,255,255, 1);
+        color: rgb(0,0,0, 1);
         
     }
 
@@ -96,7 +96,7 @@ const About: React.FC = () => {
             {
                 TechList.map(tech => 
                     <TechBox key={tech}>
-                        <Icon color={"rgb(255,255,255, 0.8)"} iconType={tech}/>
+                        <Icon color={"#667dff"} iconType={tech}/>
                         <p>{tech}</p>
                     </TechBox>
                 )
