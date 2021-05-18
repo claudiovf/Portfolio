@@ -4,7 +4,7 @@ import Icon from './Icons/Icon';
 import { IconType } from './Icons/Paths';
 
 const AboutWrap = styled.div`
-    //background-color: #f2f2f2;
+    background-color: #667dff;
     width: 100%;
     height: auto;
     display: flex;
@@ -16,6 +16,7 @@ const AboutWrap = styled.div`
 
 const StackBar = styled.div`
     width: 80%;
+    max-width: 60rem;
     height: auto;
     display: flex;
     flex-direction: row;
@@ -33,18 +34,40 @@ const TechBox = styled.div`
     height: 5rem;
     
     p {
-        color: #afafaf;
+        color: rgb(255,255,255, 0.8);
         font-family: Arial Black;
         white-space: nowrap;
     }
 `;
 
 const TitleH2 = styled.h2`
-    margin: 0 0 3rem 0;
+    margin: 0;
     font-size: 3rem;
-    color: #2f2f2f;
-    padding: 0 0 0.5rem 0;
-    border-bottom: 0.5rem solid #667dff;
+    color: #fff;
+    padding: 0;
+    @media (max-width: 768px) {
+        font-size: 2rem;
+    }
+`;
+
+const Description = styled.div`
+    text-align: center;
+    font-family: Arial;
+    max-width: 40rem;
+    width: 60%;
+    margin: 3rem 0 5rem 0;
+    color: rgb(255,255,255, 0.7);
+    font-size: 1.5rem;
+
+    span {
+        color: rgb(255,255,255, 1);
+        
+    }
+
+    @media (max-width: 768px) {
+        width: 80%;
+        font-size: 1.25rem;
+    }
 `;
 
 
@@ -59,16 +82,21 @@ const About: React.FC = () => {
         "HTML",
         "CSS",
         "NodeJS",
+        "MongoDB",
     ];
 
   return (
     <AboutWrap>
         <TitleH2>About</TitleH2>
+        <Description>
+            I develop web applications using a modern tech stack. 
+            Focusing on <span>Clean & Intuitive Designs</span> as well as <span>Performance and Responsiveness</span> to craft a unique experience for the user.
+        </Description>
         <StackBar>
             {
                 TechList.map(tech => 
                     <TechBox key={tech}>
-                        <Icon color={"#afafaf"} iconType={tech}/>
+                        <Icon color={"rgb(255,255,255, 0.8)"} iconType={tech}/>
                         <p>{tech}</p>
                     </TechBox>
                 )

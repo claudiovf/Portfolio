@@ -6,6 +6,7 @@ export const ProjectWrap = styled.div<{ bg: string }>`
     height: 80vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+    padding: 4rem 0;
 `;
