@@ -28,10 +28,14 @@ const NavButton = styled(LiveButton)`
     padding: 0.5rem 1rem;
     margin: 0.5rem 1rem;
     transition: all 0.1s linear;
-    &:hover {
-        color: #FFF;
-        transform: scale(1);
-    }
+
+    @media (hover: hover) and (pointer: fine) {
+        &:hover { 
+            color: #FFF;
+            transform: scale(1);
+        }
+      }    
+ 
 
     @media (max-width: 768px) {
         margin: 0.5rem 0.5rem;
@@ -66,9 +70,12 @@ const Header: React.FC<Props> = ({handleSelection}: Props) => {
                 ["Home", "About", "Work", "Contact"].map(nav => 
                     <NavButton 
                         key={nav}
-                        onClick={() => handleSelection(nav)}
+                        onClick={() => {
+                            handleSelection(nav)
+                            setSelected(nav)
+                        }}
                         >
-                            {nav}
+                            {nav}<span></span>
                     </NavButton>
                 )
             }

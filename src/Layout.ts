@@ -91,10 +91,13 @@ export const LiveButton = styled(StyledButton)`
   border-radius: 2rem;
   scroll-snap-align: center;
   cursor: pointer;
-  &:hover {
-      transform: scale(1.01);
-      background-color: rgb(79, 105, 255, 0.95);
-  }
+  @media (hover: hover) and (pointer: fine) {
+    &:hover { 
+        transform: scale(1.01);
+        background-color: rgb(79, 105, 255, 0.95);
+    }
+  }    
+
 
   @media (max-width: 768px) {
       font-size: 0.75rem;
