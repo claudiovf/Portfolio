@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import Icon from './Icons/Icon';
 import { IconType } from './Icons/Paths';
+import { Description, TitleH2 } from './Layout';
 
 const AboutWrap = styled.div`
     background-color: #f5f6ff;
@@ -35,43 +36,30 @@ const TechBox = styled.div`
     
     p {
         color: rgb(0,0,0, 0.7);
-        font-family: Arial Black;
         white-space: nowrap;
     }
 `;
 
-const TitleH2 = styled.h2`
-    margin: 0;
-    font-size: 3rem;
-    color: #667dff;
-    padding: 0;
-    @media (max-width: 768px) {
-        font-size: 2rem;
-    }
-`;
 
-const Description = styled.div`
-    text-align: center;
-    font-family: Arial;
-    max-width: 40rem;
-    width: 60%;
-    margin: 3rem 0 5rem 0;
-    color: rgb(0,0,0, 0.7);
-    font-size: 1.5rem;
-
+const DescAbout = styled(Description)`
+    color: rgb(0,0,0,0.5);
     span {
-        color: rgb(0,0,0, 1);
+        color: rgb(0,0,0,0.7);
         
     }
-
-    @media (max-width: 768px) {
-        width: 80%;
-        font-size: 1.25rem;
-    }
 `;
 
+interface Props { selected: string | null};
 
-const About: React.FC = () => {
+const About: React.FC<Props> = ({selected}: Props) => {
+
+    const aboutRef = useRef<HTMLDivElement | null>(null);
+  
+    useEffect(() => {
+        if (selected === "About" && aboutRef && aboutRef.current) {
+            aboutRef.current.scrollIntoView({ behavior: "smooth", block: "start"});
+        }
+    }, [selected])
 
     const TechList: IconType[] = [
         "Typescript",
@@ -86,12 +74,12 @@ const About: React.FC = () => {
     ];
 
   return (
-    <AboutWrap>
-        <TitleH2>About</TitleH2>
-        <Description>
+    <AboutWrap ref={aboutRef}>
+        <TitleH2 color={"#667dff"}>About</TitleH2>
+        <DescAbout>
             I develop web applications using a modern tech stack. 
             Focusing on <span>Clean & Intuitive Designs</span> as well as <span>Performance and Responsiveness</span> to craft a unique experience for the user.
-        </Description>
+        </DescAbout>
         <StackBar>
             {
                 TechList.map(tech => 

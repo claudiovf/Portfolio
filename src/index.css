@@ -7,6 +7,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-size: 8pt;
   scroll-behavior: smooth;
+  font-family: Helvetica;
+  font-weight: 600;
 }
 
 code {

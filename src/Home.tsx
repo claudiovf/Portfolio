@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import useFade from './useFade';
 
@@ -13,7 +13,6 @@ const HomeWrap = styled.div`
 `;
 
 const Intro = styled.div<{ opacity: number}>`
-    font-family: Arial Black;
     font-size: 4rem;
     color: #2f2f2f;
     padding: 4rem;
@@ -30,10 +29,17 @@ const Name = styled.span`
     color: #667dff;
 `;
 
-const Home: React.FC = () => {
+interface Props { selected: string | null};
+
+const Home: React.FC<Props> = ({selected}: Props) => {
     const homeRef = useRef<HTMLDivElement | null>(null);
     const opacity =  useFade(homeRef.current?.offsetHeight);
   
+    useEffect(() => {
+        if (selected === "Home" && homeRef && homeRef.current) {
+            homeRef.current.scrollIntoView({ behavior: "smooth", block: "start"});
+        }
+    }, [selected])
 
   return (
     <HomeWrap ref={homeRef}>
