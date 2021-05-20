@@ -1,17 +1,20 @@
 import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import Icon from './Icons/Icon';
-import { TitleH2 } from './Layout';
+import { AnimWrap, TitleH2 } from './Layout';
+import useVisible from './useVisible';
 
 const AboutWrap = styled.div`
     background-color: #1f1f1f;
     width: 100%;
     height: auto;
+    min-height: 20rem;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
     padding: 4rem 0;
+    overflow: hidden;
 `;
 
 const ContactBar = styled.div`
@@ -71,6 +74,7 @@ interface Props { selected: string | null};
 const Contact: React.FC<Props> = ({ selected }: Props) => {
 
     const contactRef = useRef<HTMLDivElement | null>(null);
+    const isVisible = useVisible(contactRef.current?.offsetTop);
   
     useEffect(() => {
         if (selected === "Contact" && contactRef && contactRef.current) {
@@ -80,30 +84,32 @@ const Contact: React.FC<Props> = ({ selected }: Props) => {
 
   return (
     <AboutWrap ref={contactRef}>
-        <TitleH2 color={"#667dff"}>Contact</TitleH2>
-        <Description>
-            Have a question or would like to work together? 
-            <br />Say hello!
-        </Description>
-        <ContactBar>
+        <AnimWrap isVisible={isVisible}>
+            <TitleH2 color={"#667dff"}>Contact</TitleH2>
+            <Description>
+                Have a question or would like to work together? 
+                <br />Say hello!
+            </Description>
+            <ContactBar>
 
-            <ContactIcon><a href="mailto:someone@example.com">
-                <div><Icon color={"#667dff"} iconType={"Email"}/></div></a>
-                <p>Email</p>
-            </ContactIcon>
-            <ContactIcon>
-                <div onClick={() => window.open('https://www.linkedin.com/in/claudio-varela-09b18a')}>
-                    <Icon color={"#667dff"} iconType={"Linkedin"}/>
-                </div>
-                <p>Linkedin</p>
-            </ContactIcon>
-            <ContactIcon>
-                <div onClick={() => window.open('https://github.com/claudiovf')}>
-                    <Icon color={"#667dff"} iconType={"Github"}/>
-                </div>
-                <p>Github</p>
-            </ContactIcon>
-        </ContactBar>
+                <ContactIcon><a href="mailto:someone@example.com">
+                    <div><Icon color={"#667dff"} iconType={"Email"}/></div></a>
+                    <p>Email</p>
+                </ContactIcon>
+                <ContactIcon>
+                    <div onClick={() => window.open('https://www.linkedin.com/in/claudio-varela-09b18a')}>
+                        <Icon color={"#667dff"} iconType={"Linkedin"}/>
+                    </div>
+                    <p>Linkedin</p>
+                </ContactIcon>
+                <ContactIcon>
+                    <div onClick={() => window.open('https://github.com/claudiovf')}>
+                        <Icon color={"#667dff"} iconType={"Github"}/>
+                    </div>
+                    <p>Github</p>
+                </ContactIcon>
+            </ContactBar>
+        </AnimWrap>
     </AboutWrap>
   );
 }

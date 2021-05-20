@@ -144,3 +144,18 @@ export const ImgWrap = styled.div`
     min-width: 100%;
     margin: 0 0 3rem 0;
 `;
+
+export const AnimWrap = styled.div<{ isVisible: boolean }>`
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0;
+    transition: all 0.5s linear;
+    ${props => props.isVisible
+        ? "transform: translateY(0); opacity: 1;"
+        : "transform: translateY(5rem); opacity: 0;"
+    }
+`;

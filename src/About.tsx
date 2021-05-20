@@ -2,12 +2,14 @@ import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import Icon from './Icons/Icon';
 import { IconType } from './Icons/Paths';
-import { Description, TitleH2 } from './Layout';
+import { AnimWrap, Description, TitleH2 } from './Layout';
+import useVisible from './useVisible';
 
 const AboutWrap = styled.div`
     background-color: #f5f6ff;
     width: 100%;
     height: auto;
+    min-height: 20rem;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -42,6 +44,7 @@ const TechBox = styled.div`
 
 
 const DescAbout = styled(Description)`
+    margin: 3rem 0;
     color: rgb(0,0,0,0.5);
     span {
         color: rgb(0,0,0,0.7);
@@ -49,16 +52,20 @@ const DescAbout = styled(Description)`
     }
 `;
 
-interface Props { selected: string | null};
+
+interface Props { selected: string | null };
 
 const About: React.FC<Props> = ({selected}: Props) => {
 
     const aboutRef = useRef<HTMLDivElement | null>(null);
-  
+
+    const isVisible = useVisible(aboutRef.current?.offsetTop);
+
     useEffect(() => {
         if (selected === "About" && aboutRef && aboutRef.current) {
             aboutRef.current.scrollIntoView({ behavior: "smooth", block: "start"});
         }
+        
     }, [selected])
 
     const TechList: IconType[] = [
@@ -73,23 +80,27 @@ const About: React.FC<Props> = ({selected}: Props) => {
         "MongoDB",
     ];
 
+
   return (
     <AboutWrap ref={aboutRef}>
-        <TitleH2 color={"#667dff"}>About</TitleH2>
-        <DescAbout>
-            I develop web applications using a modern tech stack. 
-            Focusing on <span>Clean & Intuitive Designs</span> as well as <span>Performance and Responsiveness</span> to craft a unique experience for the user.
-        </DescAbout>
-        <StackBar>
-            {
-                TechList.map(tech => 
-                    <TechBox key={tech}>
-                        <Icon color={"#667dff"} iconType={tech}/>
-                        <p>{tech}</p>
-                    </TechBox>
-                )
-            }
-        </StackBar>
+        <AnimWrap isVisible={isVisible}>
+            <TitleH2 color={"#667dff"}>About</TitleH2>
+                <DescAbout>
+                    I develop web applications using a modern stack. 
+                    Focusing on <span>Clean & Intuitive Designs</span> as well as <span>Performance and Responsiveness</span> to craft a unique user experience.
+                </DescAbout>
+                <StackBar>
+                    {
+                        TechList.map(tech => 
+                            <TechBox key={tech}>
+                                <Icon color={"#667dff"} iconType={tech}/>
+                                <p>{tech}</p>
+                            </TechBox>
+                        )
+                    }
+                </StackBar>
+        </AnimWrap>
+      
     </AboutWrap>
   );
 }

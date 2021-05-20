@@ -1,10 +1,19 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import styled from 'styled-components';
 import { 
+    AnimWrap,
     Description,
   DisabledButton, Divider, 
   ImgWrap, 
   LiveButton, RowWrap, 
   TechTag, TitleH4 } from './Layout';
+import useVisible from './useVisible';
+
+  const ProjectWrap = styled.div`
+    margin: 0;
+    width: 100%;
+    overflow: hidden;
+`;
 
 export interface ProjectInfo {
     tags: string[];
@@ -16,10 +25,13 @@ export interface ProjectInfo {
 }
 
 const Project: React.FC<ProjectInfo> = ({tags, image, projectName, liveURL, overviewURL, description}: ProjectInfo) => {
-    
+    const ref = useRef<HTMLDivElement | null>(null);
+    const isVisible = useVisible(ref.current?.offsetTop);
+
 
   return (
-    <React.Fragment>
+    <ProjectWrap ref={ref}>
+        <AnimWrap isVisible={isVisible}>
         {
             image
             ?<ImgWrap>
@@ -49,8 +61,8 @@ const Project: React.FC<ProjectInfo> = ({tags, image, projectName, liveURL, over
             projectName !== "claudiovarela.com" ? <Divider /> : null
         }
         
-        
-    </React.Fragment>
+        </AnimWrap>
+    </ProjectWrap>
   );
 }
 
