@@ -10,6 +10,9 @@ const HomeWrap = styled.div`
     justify-content: center;
     align-items: left;
     max-width: 80rem;
+    @media (min-width: 2800px) {
+        max-width: 50%;
+    }
 `;
 
 const Intro = styled.div<{ opacity: number}>`
@@ -22,6 +25,10 @@ const Intro = styled.div<{ opacity: number}>`
     @media (max-width: 768px) {
         font-size: 2rem;
         padding: 2rem;
+    }
+    @media (min-width: 2800px) {
+        font-size: 10rem;
+        max-width: 100%;
     }
 `;
 

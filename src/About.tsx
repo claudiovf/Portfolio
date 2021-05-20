@@ -15,6 +15,10 @@ const AboutWrap = styled.div`
     justify-content: flex-start;
     align-items: center;
     padding: 4rem 0;
+
+    @media (min-width: 2800px) {
+        padding: 8rem 0;
+    }
 `;
 
 const StackBar = styled.div`
@@ -26,6 +30,10 @@ const StackBar = styled.div`
     flex-flow: wrap;
     justify-content: space-between;
     align-items: center;
+
+    @media (min-width: 2800px) {
+        max-width: 50%;
+    }
 `;
 
 const TechBox = styled.div`
@@ -40,6 +48,17 @@ const TechBox = styled.div`
         color: rgb(0,0,0, 0.7);
         white-space: nowrap;
     }
+
+    @media (min-width: 2800px) {
+        width: 10rem;
+        height: 10rem;
+
+        p {
+            color: rgb(0,0,0, 0.7);
+            white-space: nowrap;
+            font-size: 2rem;
+        }
+    }
 `;
 
 
@@ -49,6 +68,10 @@ const DescAbout = styled(Description)`
     span {
         color: rgb(0,0,0,0.7);
         
+    }
+
+    @media (min-width: 2800px) {
+        margin: 6rem 0 10rem 0;
     }
 `;
 

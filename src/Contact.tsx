@@ -4,17 +4,21 @@ import Icon from './Icons/Icon';
 import { AnimWrap, TitleH2 } from './Layout';
 import useVisible from './useVisible';
 
-const AboutWrap = styled.div`
+const ContactWrap = styled.div`
     background-color: #1f1f1f;
     width: 100%;
     height: auto;
-    min-height: 20rem;
+    min-height: 30vh;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
     padding: 4rem 0;
     overflow: hidden;
+
+    @media (min-width: 2800px) {
+        padding: 8rem 0;
+      }
 `;
 
 const ContactBar = styled.div`
@@ -50,6 +54,14 @@ const ContactIcon = styled.div`
             background-color: rgb(255, 255, 255, 0.1);
         }
     }
+
+    @media (min-width: 2800px) {
+        width: 10rem;
+        height: 10rem;
+        p {
+            font-size: 2rem;
+        }
+      }
     
 `;
 
@@ -67,6 +79,13 @@ const Description = styled.div`
         width: 80%;
         font-size: 1.25rem;
     }
+
+    @media (min-width: 2800px) {
+        font-size: 3rem;
+        line-height: 3rem;
+        max-width: 50%;
+        margin: 6rem 0 10rem 0;
+      }
 `;
 
 interface Props { selected: string | null};
@@ -83,7 +102,7 @@ const Contact: React.FC<Props> = ({ selected }: Props) => {
     }, [selected])
 
   return (
-    <AboutWrap ref={contactRef}>
+    <ContactWrap ref={contactRef}>
         <AnimWrap isVisible={isVisible}>
             <TitleH2 color={"#667dff"}>Contact</TitleH2>
             <Description>
@@ -110,7 +129,7 @@ const Contact: React.FC<Props> = ({ selected }: Props) => {
                 </ContactIcon>
             </ContactBar>
         </AnimWrap>
-    </AboutWrap>
+    </ContactWrap>
   );
 }
 

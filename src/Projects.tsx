@@ -14,7 +14,7 @@ const projectInfo = [
     projectName: "Ref1 App",
     liveURL: "https://ref1.app",
     overviewURL: "https://github.com/claudiovf/Ref1-Front/blob/main/README.md",
-    description: "Easy-to-use <span>Mobile-First</span> Formula 1 reference Progressive Web App. Since launch, in March/2021, it reached <span>over 180k page views from 10k users accross 120 countries</span>."
+    description: "Easy-to-use <span>Mobile-First</span> Formula 1 reference Progressive Web App. Since launching in March/2021, it reached <span>over 180k page views from 10k users accross 120 countries</span>."
   },
   {
     tags: ["Typescript", "Apollo", "GraphQL", "NodeJS", "MongoDB", "Mongoose", "JWT" ],

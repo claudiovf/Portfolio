@@ -9,6 +9,9 @@ export const ProjectWrap = styled.div<{ bg: string }>`
     justify-content: flex-start;
     align-items: center;
     padding: 4rem 0;
+    @media (min-width: 2800px) {
+      padding: 8rem 0;
+  }
 `;
 
 export const TitleH2 = styled.h2<{color: string}>`
@@ -19,6 +22,9 @@ export const TitleH2 = styled.h2<{color: string}>`
     @media (max-width: 768px) {
       font-size: 2.75rem;
   }
+    @media (min-width: 2800px) {
+      font-size: 8rem;
+  }
 `;
 export const TitleH4 = styled.h4`
     margin: 0;
@@ -28,6 +34,10 @@ export const TitleH4 = styled.h4`
     margin-bottom: 3rem;
     @media (max-width: 768px) {
       font-size: 2rem;
+  }
+    @media (min-width: 2800px) {
+      font-size: 6rem;
+      margin-bottom: 6rem;
   }
 `;
 
@@ -48,6 +58,13 @@ export const Description = styled.div`
       width: 80%;
       font-size: 1.25rem;
   }
+    @media (min-width: 2800px) {
+      width: 100%;
+      max-width: 40%;
+      font-size: 3rem;
+      line-height: 3rem;
+      margin: 1rem 0 6rem 0;
+  }
 `;
 
 
@@ -58,6 +75,10 @@ export const RowWrap = styled.div`
   justify-content: center;
   align-items: center;
   margin-bottom: 3rem;
+
+  @media (min-width: 2800px) {
+    margin-bottom: 6rem;
+}
 `;
 
 export const TechTag = styled.div`
@@ -68,6 +89,13 @@ export const TechTag = styled.div`
     padding: 0.5rem 1rem;
     border-radius: 0.25rem;
     white-space: no-wrap;
+
+    @media (min-width: 2800px) {
+      font-size: 2rem;
+      padding: 1rem 2rem;
+      border-radius: 0.75rem;
+      margin: 0.75rem;
+  }
 `;
 
 export const StyledButton = styled.button`
@@ -97,6 +125,11 @@ export const LiveButton = styled(StyledButton)`
         background-color: rgb(79, 105, 255, 0.95);
     }
   }    
+    @media (min-width: 2800px) {
+      padding: 2rem 3rem;
+      font-size: 2rem;
+      border-radius: 4rem;
+  }
 
 
   @media (max-width: 768px) {
@@ -122,6 +155,11 @@ export const DisabledButton = styled(StyledButton)`
       padding: 1rem 1.5rem;
       margin: 1.25rem 0.25rem ;
   }
+  @media (min-width: 2800px) {
+    padding: 2rem 3rem;
+    font-size: 2rem;
+    border-radius: 4rem;
+}
 `;
 
 export const Divider = styled.div`
@@ -134,6 +172,11 @@ export const Divider = styled.div`
     max-width: 60rem;
     border-bottom: 2px solid #dadada;
     margin: 2rem 0 5rem 0;
+
+    @media (min-width: 2800px) {
+      margin: 4rem 0 10rem 0;
+      max-width: 50%;
+    }
 `;
 export const ImgWrap = styled.div`
     display: flex;

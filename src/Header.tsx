@@ -15,11 +15,16 @@ export const HeaderStyled = styled.div`
     overflow: hidden;
     z-index: 1000;
     background-color: rgb(255,255,255, 0.9);
-    backdrop-filter: blur(10px) opacity(70%) brightness(90%);
+    backdrop-filter: blur(10px) opacity(70%) ;
 
     @media (max-width: 768px) {
         justify-content: space-between;
     }
+
+    @media (min-width: 2800px) {
+        min-height: 6rem;
+        max-height: 6rem;
+      }
 `;
 
 const NavButton = styled(LiveButton)`
@@ -35,7 +40,6 @@ const NavButton = styled(LiveButton)`
             transform: scale(1);
         }
       }    
- 
 
     @media (max-width: 768px) {
         margin: 0.5rem 0.5rem;
